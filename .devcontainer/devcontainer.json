@@ -1,0 +1,24 @@
+{
+  "name": "Anmol GitHub Codespace",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "GitHub.vscode-pull-request-github"
+      ]
+    }
+  },
+  "postCreateCommand": "echo 'Welcome to your Anmol GitHub Codespace!' && python3 --version && node --version"
+}
