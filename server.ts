@@ -209,7 +209,7 @@ async function startServer() {
       return res.status(500).json({
         error: {
           code: 500,
-          message: "Gateway is not configured with a valid server-side GEMINI_API_KEY. Set it in the Secrets panel.",
+          message: "Gateway is not configured with a valid server-side GEMINI_API_KEY. Set GEMINI_API_KEY in your environment variables.",
           status: "INTERNAL"
         }
       });

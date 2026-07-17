@@ -1,20 +1,60 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Gemini API Gateway
 
-# Run and deploy your AI Studio app
+A developer proxy gateway for secure, custom token authorization with Gemini models. Create and manage custom API keys with full analytics, playground, and multi-model proxy access using Gemini 3.5 Flash.
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/32a9c197-d352-41ce-a3d3-9cb8240eea56
+## Features
+- 🔑 Custom API key creation and management
+- 📊 Request analytics, success rate, latency tracking
+- 🧪 Built-in playground for testing
+- 📝 Request logs with model distribution
+- 🔒 Model-level permissions per key
+- 🚀 Express + Vite + React
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js 18+
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+   ```bash
+   npm install
+   ```
+
+2. Create `.env.local` or `.env` and set your keys:
+   ```bash
+   GEMINI_API_KEY=your_gemini_api_key
+   APP_URL=http://localhost:3000
+   ```
+
 3. Run the app:
-   `npm run dev`
+   ```bash
+   npm run dev
+   ```
+
+4. Open http://localhost:3000
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## API Gateway
+
+Once running, forward your SDK and REST traffic through:
+
+```
+{APP_URL}/api/v1beta/models/{model}:{method}
+```
+
+Example:
+- `POST /api/v1beta/models/gemini-3.5-flash:generateContent`
+- `POST /api/v1beta/models/gemini-2.5-flash:generateContent`
+
+Provide your custom gateway key via `x-goog-api-key` header, `Authorization: Bearer <key>`, or `?key=` query param.
+
+## Project Structure
+
+- `server.ts` - Express server with Vite middleware and Gemini proxy logic
+- `src/` - React frontend (dashboard, keys table, playground, logs)
+- `src/lib/db.ts` - In-memory DB for keys/logs (replace with persistent DB for prod)

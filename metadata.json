@@ -1,6 +1,0 @@
-{
-  "name": "Gemini API Gateway",
-  "description": "Create and manage custom API keys with full analytics, playground, and multi-model proxy access using Gemini 3.5 Flash.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
